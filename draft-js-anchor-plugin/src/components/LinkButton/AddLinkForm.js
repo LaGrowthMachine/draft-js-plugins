@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
+//import clsx from 'clsx';
 import EditorUtils from 'draft-js-plugins-utils';
 
 import URLUtils from '../../utils/URLUtils';
@@ -10,17 +10,18 @@ export default class AddLinkForm extends Component {
     getEditorState: PropTypes.func.isRequired,
     setEditorState: PropTypes.func.isRequired,
     onOverrideContent: PropTypes.func.isRequired,
-    theme: PropTypes.object.isRequired,
+    /* theme: PropTypes.object.isRequired,*/
     placeholder: PropTypes.string,
   };
 
   static defaultProps = {
-    placeholder: 'Enter a URL and press enter',
+    placeholder: 'Add link and press enter',
   };
 
   state = {
     value: '',
     isInvalid: false,
+    track: false,
   };
 
   componentDidMount() {
@@ -51,6 +52,11 @@ export default class AddLinkForm extends Component {
     }
   };
 
+  onToogle = e => {
+    e.preventDefault();
+    this.setState({ track: !this.state.track });
+  };
+
   submit() {
     const { getEditorState, setEditorState } = this.props;
     let { value: url } = this.state;
@@ -63,29 +69,45 @@ export default class AddLinkForm extends Component {
     } else {
       url = URLUtils.normaliseMail(url);
     }
-    setEditorState(EditorUtils.createLinkAtSelection(getEditorState(), url));
+    setEditorState(
+      EditorUtils.createLinkAtSelection(getEditorState(), url, this.state.track)
+    );
     this.input.blur();
     this.onClose();
   }
 
   render() {
-    const { theme, placeholder } = this.props;
-    const { value, isInvalid } = this.state;
+    const { /*theme,*/ placeholder } = this.props;
+    const { value /*, isInvalid*/ } = this.state;
+    /*
     const className = isInvalid
       ? clsx(theme.input, theme.inputInvalid)
       : theme.input;
-
+    */
     return (
-      <input
-        className={className}
-        onBlur={this.onClose}
-        onChange={this.onChange}
-        onKeyDown={this.onKeyDown}
-        placeholder={placeholder}
-        ref={this.onRef}
-        type="text"
-        value={value}
-      />
+      <div className="jstoolbar_formwrapper">
+        <input
+          key="input"
+          className="draftJsMentionPlugin__input__1Wxng"
+          //onBlur={this.onClose}
+          onChange={this.onChange}
+          onKeyDown={this.onKeyDown}
+          placeholder={placeholder}
+          ref={this.onRef}
+          type="text"
+          value={value}
+        />
+        <div
+          key="toogle"
+          className={`toogle state_${String(this.state.track)}`}
+          onClick={() => this.onToogle}
+        >
+          <div className="toogle_ball">&nbsp;</div>
+        </div>
+        <span className="track_link" key="span">
+          track link clicks
+        </span>
+      </div>
     );
   }
 }
