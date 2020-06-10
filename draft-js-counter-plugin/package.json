@@ -1,6 +1,6 @@
 {
   "name": "@lagrowthmachine/draft-js-counter-plugin",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Counter Plugin for DraftJS",
   "author": {
     "name": "Adrian Li",
