@@ -1,6 +1,6 @@
 {
   "name": "@lagrowthmachine/draft-js-drag-n-drop-plugin",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Block Drag & Drop Plugin for DraftJS",
   "author": {
     "name": "Benjamin Kniffler",
@@ -11,8 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LaGrowthMachine/draft-js-plugins.git",
-    "directory": "draft-js-drag-n-drop-plugin"
+    "url": "https://github.com/LaGrowthMachine/draft-js-plugins.git"
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
