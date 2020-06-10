@@ -1,14 +1,17 @@
 {
-  "name": "draft-js-divider-plugin",
-  "version": "1.1.1",
+  "name": "@lagrowthmachine/draft-js-divider-plugin",
+  "version": "1.1.2",
   "description": "Divider Plugin for DraftJS",
   "author": {
     "name": "Ilkwon Sim",
     "email": "simsim0709@gmail.com"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/draft-js-plugins/draft-js-plugins.git"
+    "url": "https://github.com/LaGrowthMachine/draft-js-plugins.git"
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
@@ -31,7 +34,7 @@
     "build": "yarn clean && yarn build:js && yarn build:css",
     "build:js": "../node_modules/.bin/rollup --config ../rollup.config.js",
     "build:css": "node ../scripts/build-css.js $(pwd)",
-    "prepublish": "yarn build"
+    "prepublish": "yarn version --patch && yarn build"
   },
   "license": "MIT",
   "dependencies": {
