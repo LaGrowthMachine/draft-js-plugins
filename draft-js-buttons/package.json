@@ -1,14 +1,17 @@
 {
-  "name": "draft-js-buttons",
-  "version": "2.0.2",
+  "name": "@lagrowthmachine/draft-js-buttons",
+  "version": "2.0.3",
   "description": "Buttons for DraftJS",
   "author": {
     "name": "Nik Graf",
     "email": "nik@nikgraf.com"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/draft-js-plugins/draft-js-plugins.git"
+    "url": "https://github.com/LaGrowthMachine/draft-js-plugins.git"
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
@@ -31,7 +34,7 @@
     "build": "yarn clean && yarn build:js && yarn build:ts",
     "build:js": "../node_modules/.bin/rollup --config ../rollup.config.js",
     "build:ts": "../node_modules/.bin/cpx src/*.d.ts lib/",
-    "prepublish": "yarn build"
+    "prepublish": "yarn version --patch && yarn build"
   },
   "license": "MIT",
   "dependencies": {
