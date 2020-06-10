@@ -1,6 +1,6 @@
 {
   "name": "@lagrowthmachine/draft-js-anchor-plugin",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Link Plugin for DraftJS",
   "author": {
     "name": "Jan Amann",
