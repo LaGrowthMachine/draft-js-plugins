@@ -11,7 +11,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LaGrowthMachine/draft-js-plugins.git"
+    "url": "https://github.com/LaGrowthMachine/draft-js-plugins.git",
+    "directory": "draft-js-buttons"
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",

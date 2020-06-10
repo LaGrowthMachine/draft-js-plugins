@@ -1,5 +1,5 @@
 {
-  "name": "draft-js-plugins-editor",
+  "name": "@lagrowthmachine/draft-js-plugins-editor",
   "version": "3.0.0",
   "description": "Editor for DraftJS Plugins",
   "author": {
@@ -7,9 +7,13 @@
     "email": "nik@nikgraf.com",
     "url": "http://www.nikgraf.com"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/draft-js-plugins/draft-js-plugins.git"
+    "url": "https://github.com/LaGrowthMachine/draft-js-plugins.git",
+    "directory": "draft-js-plugins-editor"
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
@@ -31,7 +35,7 @@
     "build": "yarn clean && yarn build:js && yarn build:ts",
     "build:js": "../node_modules/.bin/rollup --config ../rollup.config.js",
     "build:ts": "../node_modules/.bin/cpx src/*.d.ts lib/",
-    "prepublish": "yarn build"
+    "prepublish": "yarn version --patch && yarn build"
   },
   "license": "MIT",
   "dependencies": {
